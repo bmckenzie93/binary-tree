@@ -36,6 +36,20 @@ const treeData = [{
                                             "children": []
                                         },
                                         {
+                                            "node": "Squidward",
+                                            "description": "air conditioner",
+                                            "image": "test.jpg",
+                                            "badge": "",
+                                            "children": []
+                                        },
+                                        {
+                                            "node": "Patric",
+                                            "description": "air conditioner",
+                                            "image": "test.jpg",
+                                            "badge": "",
+                                            "children": []
+                                        },
+                                        {
                                             "node": "Mina",
                                             "description": "care taker",
                                             "image": "test.jpg",
@@ -71,7 +85,36 @@ const treeData = [{
                                             "description": "chevron",
                                             "image": "test.jpg",
                                             "badge": "",
+                                            "children": [
+                                        {
+                                            "node": "Joe",
+                                            "description": "air conditioner",
+                                            "image": "test.jpg",
+                                            "badge": "",
                                             "children": []
+                                        },
+                                        {
+                                            "node": "Squidward",
+                                            "description": "air conditioner",
+                                            "image": "test.jpg",
+                                            "badge": "",
+                                            "children": []
+                                        },
+                                        {
+                                            "node": "Patric",
+                                            "description": "air conditioner",
+                                            "image": "test.jpg",
+                                            "badge": "",
+                                            "children": []
+                                        },
+                                        {
+                                            "node": "Mina",
+                                            "description": "care taker",
+                                            "image": "test.jpg",
+                                            "badge": "",
+                                            "children": []
+                                        }
+                                    ]
                                         },
                                         {
                                             "node": "Leslie",
@@ -124,7 +167,36 @@ const treeData = [{
                                             "description": "care taker",
                                             "image": "test.jpg",
                                             "badge": "",
+                                            "children": [
+                                        {
+                                            "node": "Joe",
+                                            "description": "air conditioner",
+                                            "image": "test.jpg",
+                                            "badge": "",
                                             "children": []
+                                        },
+                                        {
+                                            "node": "Squidward",
+                                            "description": "air conditioner",
+                                            "image": "test.jpg",
+                                            "badge": "",
+                                            "children": []
+                                        },
+                                        {
+                                            "node": "Patric",
+                                            "description": "air conditioner",
+                                            "image": "test.jpg",
+                                            "badge": "",
+                                            "children": []
+                                        },
+                                        {
+                                            "node": "Mina",
+                                            "description": "care taker",
+                                            "image": "test.jpg",
+                                            "badge": "",
+                                            "children": []
+                                        }
+                                    ]
                                         }
                                     ]
                                 }
