@@ -30,6 +30,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
 }
@@ -89,6 +90,14 @@ header {
       font-weight: bold;
     }
 
+    .learn-more {
+      font-weight: bold;
+      color: #601c0c;
+      text-transform: capitalize;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
     span {
       position: absolute;
       width: 30px;
@@ -100,15 +109,16 @@ header {
       color: orange;
       border: 3px solid white;
       transform: translate(-50%, -50%);
+      z-index: 9999999;
     }
 
     .toggle-icon {
       position: absolute;
-      bottom: 8px;
+      bottom: 4px;
       right: 8px;
       font-size: 1.2rem;
       cursor: pointer;
-      color: #555;
+      color: #601c0c;
       user-select: none;
     }
 
@@ -132,16 +142,19 @@ header {
 
       ul {
         max-height: 0;
-        overflow: hidden;
-        opacity: 0;
         transition: max-height 0.4s ease, opacity 0.4s ease;
-        will-change: max-height, opacity;
 
-        &.open {
+        &.is-expanded {
+          overflow: visible;
           max-height: 10000px; // or more depending on nesting
           opacity: 1;
         }
-      }
+
+        &.is-collapsed {
+          overflow: hidden;
+          opacity: 0;
+        }
+      }  
 
       &--root {
         display: flex;
@@ -211,3 +224,51 @@ header {
     display: none;
   }
 }
+
+.legend {
+  padding: 0 10%;
+
+  p { 
+    font-size: 14px; 
+  }
+}
+
+.badge-key {
+  text-align: center; 
+  
+  ul {
+    list-style: none;
+    padding: 6px 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  .badge {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+    border: 2px solid white;
+
+    &--orange {
+      background-color: orange;
+    }
+
+    &--green {
+      background-color: #4caf50;
+    }
+
+    &--blue {
+      background-color: #2196f3;
+    }
+  }
+}
+

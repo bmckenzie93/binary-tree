@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.scss'
 import Header from './components/Header/Header.jsx'
-import Form from './components/Form/Form.jsx'
-import treeData from './assets/treeData2.js'
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 function App() {
+  const [treeData, setTreeData] = useState([]);
+  const [datasetKey, setDatasetKey] = useState('one');
   const godNodeRef = useRef(null);
   const [controller, setController] = useState(null);
   const [expandedNodes, setExpandedNodes] = useState({});
@@ -27,7 +27,7 @@ function App() {
       const isTopRoot = isRoot && index === 0;
       const cardType = item.cardType || 'primary';
       const nodeKey = item.node + index;
-      const isExpanded = expandedNodes[nodeKey] ?? true; // default open
+      const isExpanded = expandedNodes[nodeKey] ?? false; // default closed
 
       let sideClass = '';
       if (total === 1) {
@@ -59,13 +59,45 @@ function App() {
             {cardType === 'primary' && (
               <>
                 <img src={`https://i.pravatar.cc/150?img=${index + 1}`} alt={item.node} />
-                <p>{item.description}</p>
+                <p>
+                  {item.description}
+                  {item.link && (
+                    <>
+                      <br />
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="learn-more"
+                      >
+                        Learn more
+                      </a>
+                    </>
+                  )}
+                </p>
               </>
             )}
 
             {cardType === 'secondary' && (
-              <p>{item.description}</p>
+              <p>
+                {item.description}
+                {item.link && (
+                  <>
+                    <br />
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="learn-more"
+                    >
+                      Learn more
+                    </a>
+                  </>
+                )}
+              </p>
             )}
+
+
 
             {item.badge && <span>{item.badge}</span>}
 
@@ -79,7 +111,7 @@ function App() {
 
           {/* Conditional children rendering */}
           {item.children?.length > 0 && (
-            <ul className={isExpanded ? 'open' : ''}>
+            <ul className={isExpanded ? 'is-expanded' : 'is-collapsed'}>
               {renderTree(item.children, false)}
             </ul>
           )}
@@ -87,6 +119,26 @@ function App() {
       )
     });
   };
+
+  useEffect(() => {
+    const loadData = async () => {
+      let dataModule;
+      switch (datasetKey) {
+        case 'two':
+          dataModule = await import('./assets/data/treeData2');
+          break;
+        case 'three':
+          dataModule = await import('./assets/data/treeData3');
+          break;
+        case 'one':
+        default:
+          dataModule = await import('./assets/data/treeData1');
+      }
+      setTreeData(dataModule.default);
+    };
+
+    loadData();
+  }, [datasetKey]);
 
   useEffect(() => {
     if (controller && godNodeRef.current) {
@@ -106,7 +158,7 @@ function App() {
         initialPositionX={-5000}
         onInit={(controller) => setController(controller)}  // ✅ Capture the controller
       >
-        <Header />
+        <Header onSelectDataset={setDatasetKey} />
         <TransformComponent>
           <ul id="tree">
             {renderTree(treeData, true)}
