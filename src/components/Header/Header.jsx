@@ -10,7 +10,7 @@ const Header = ({ onSelectDataset }) => {
       <img src={logo} alt="Mountain Rose Herbs Logo" />
       <div className="legend">
         <p>Welcome to Mountain Rose Herbs: Herbalism Family Tree!</p>
-        <p>Click, drag, and pinch to explore around the app.</p>
+        <p>Click, drag, pinch and scroll to explore around the app. Click on a card to open and close it's descendants.</p>
         <p>
           Select which tree you would like to explore here: <select name="dataSelect" id="dataSelect" onChange={handleChange}>
                                                               <option value="one">Data set one</option>

@@ -140,11 +140,13 @@ function App() {
     loadData();
   }, [datasetKey]);
 
-  useEffect(() => {
-    if (controller && godNodeRef.current) {
-      controller.zoomToElement(godNodeRef.current, 1, 2000);  // ✅ Adjust zoom level if needed
-    }
-  }, [controller]);
+useEffect(() => {
+  if (controller && godNodeRef.current) {
+    requestAnimationFrame(() => {
+      controller.zoomToElement(godNodeRef.current, 1, 0);
+    });
+  }
+}, [treeData, controller]);
 
   return (
     <div className="container">
@@ -153,7 +155,6 @@ function App() {
       <TransformWrapper
         minScale={0.1}
         maxScale={5}
-        initialScale={.1}
         initialPositionY={-5000}
         initialPositionX={-5000}
         onInit={(controller) => setController(controller)}  // ✅ Capture the controller
