@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
-import './App.scss'
-import Header from './components/Header/Header.jsx'
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { Routes, Route } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import Tree from './pages/Tree';
+import Join from './pages/Join';
+import './App.scss';
+import Header from './components/Header/Header.jsx';
 
 function App() {
   const [treeData, setTreeData] = useState([]);
@@ -17,17 +19,15 @@ function App() {
     }));
   };
 
-
-
   const renderTree = (treeData, isRoot = false) => {
     const total = treeData.length;
     const middleIndex = Math.floor(total / 2);
-    
+
     return treeData.map((item, index) => {
       const isTopRoot = isRoot && index === 0;
       const cardType = item.cardType || 'primary';
       const nodeKey = item.node + index;
-      const isExpanded = expandedNodes[nodeKey] ?? false; // default closed
+      const isExpanded = expandedNodes[nodeKey] ?? false;
 
       let sideClass = '';
       if (total === 1) {
@@ -46,12 +46,12 @@ function App() {
 
       return (
         <li
-          className={`node-container${isTopRoot ? ' node-container--root' : ''} ${sideClass} ${item.children && item.children.length > 0 ? 'has-children' : ''}`}
+          className={`node-container${isTopRoot ? ' node-container--root' : ''} ${sideClass} ${item.children?.length ? 'has-children' : ''}`}
           key={nodeKey}
         >
           <div
             ref={isTopRoot ? godNodeRef : null}
-            className={`node node--${cardType} ${isTopRoot ? 'node--root' : ''} ${item.children && item.children.length > 0 ? 'has-children' : ''}`}
+            className={`node node--${cardType} ${isTopRoot ? 'node--root' : ''} ${item.children?.length ? 'has-children' : ''}`}
             onClick={() => item.children?.length && toggleNode(nodeKey)}
           >
             <h3>{item.node}</h3>
@@ -97,11 +97,8 @@ function App() {
               </p>
             )}
 
-
-
             {item.badge && <span>{item.badge}</span>}
 
-            {/* Expand/Collapse Indicator */}
             {item.children?.length > 0 && (
               <div className="toggle-icon">
                 {isExpanded ? '▼' : '▶'}
@@ -109,14 +106,13 @@ function App() {
             )}
           </div>
 
-          {/* Conditional children rendering */}
           {item.children?.length > 0 && (
             <ul className={isExpanded ? 'is-expanded' : 'is-collapsed'}>
               {renderTree(item.children, false)}
             </ul>
           )}
         </li>
-      )
+      );
     });
   };
 
@@ -140,33 +136,30 @@ function App() {
     loadData();
   }, [datasetKey]);
 
-useEffect(() => {
-  if (controller && godNodeRef.current) {
-    requestAnimationFrame(() => {
-      controller.zoomToElement(godNodeRef.current, 1, 0);
-    });
-  }
-}, [treeData, controller]);
+  useEffect(() => {
+    if (controller && godNodeRef.current) {
+      requestAnimationFrame(() => {
+        controller.zoomToElement(godNodeRef.current, 1, 0);
+      });
+    }
+  }, [treeData, controller]);
 
   return (
-    <div className="container">
-      {/* <Form /> */}
-
-      <TransformWrapper
-        minScale={0.1}
-        maxScale={5}
-        initialPositionY={-5000}
-        initialPositionX={-5000}
-        onInit={(controller) => setController(controller)}  // ✅ Capture the controller
-      >
-        <Header onSelectDataset={setDatasetKey} />
-        <TransformComponent>
-          <ul id="tree">
-            {renderTree(treeData, true)}
-          </ul>
-        </TransformComponent>
-      </TransformWrapper>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Tree
+            treeData={treeData}
+            renderTree={renderTree}
+            godNodeRef={godNodeRef}
+            setController={setController}
+            headerComponent={<Header onSelectDataset={setDatasetKey} />}
+          />
+        }
+      />
+      <Route path="/join" element={<Join />} />
+    </Routes>
   );
 }
 

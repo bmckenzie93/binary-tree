@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../../assets/mrh-logo.webp'
 
 const Header = ({ onSelectDataset }) => {
@@ -18,7 +19,10 @@ const Header = ({ onSelectDataset }) => {
                                                               <option value="three">Data set three</option>
                                                             </select>
         </p>
-        
+        <p>
+          If you would like to be added to the tree,{' '}
+          <Link to="/join">click here</Link>.
+        </p>
 
         <div className="badge-key">
           <ul>
