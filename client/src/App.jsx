@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
-import Tree from './pages/Tree';
-import Join from './pages/Join';
+import Tree from './pages/Tree.jsx';
+import Join from './pages/Join.jsx';
 import './App.scss';
 import Header from './components/Header/Header.jsx';
 
@@ -121,14 +121,14 @@ function App() {
       let dataModule;
       switch (datasetKey) {
         case 'two':
-          dataModule = await import('./assets/data/treeData2');
+          dataModule = await import('./assets/data/treeData2.js');
           break;
         case 'three':
-          dataModule = await import('./assets/data/treeData3');
+          dataModule = await import('./assets/data/treeData3.js');
           break;
         case 'one':
         default:
-          dataModule = await import('./assets/data/treeData1');
+          dataModule = await import('./assets/data/treeData1.js');
       }
       setTreeData(dataModule.default);
     };
