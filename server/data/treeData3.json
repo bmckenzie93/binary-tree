@@ -1,4 +1,4 @@
-const treeData = [{
+{
   "node": "The Avengers",
   "description": "A team of superheroes, each with their own unique powers and skills.",
   "link": "https://www.mountainroseherbs.com",
@@ -102,6 +102,4 @@ const treeData = [{
       ]
     }
   ]
-}];
-
-export default treeData;
+}

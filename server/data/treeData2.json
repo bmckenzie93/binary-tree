@@ -1,55 +1,46 @@
-const treeData = [{
-  "node": "Elias Murdock",
-  "description": "A visionary thinker with a passion for herbal traditions.",
+{
+  "node": "Winston Carraway",
+  "description": "Founder of the herbal lineage and visionary of natural healing.",
   "link": "https://www.mountainroseherbs.com",
   "image": "test.jpg",
   "cardType": "primary",
-  "badge": "star",
+  "badge": "",
   "children": [
     {
-      "node": "Lydia Carver",
-      "description": "Expert in ancient remedies and folklore.",
+      "node": "Mara Ellington",
+      "description": "A bold pioneer with deep roots in plant lore.",
       "link": "",
       "image": "test.jpg",
       "cardType": "secondary",
       "badge": "circle",
       "children": [
         {
-          "node": "Harlan Fitzpatrick",
-          "description": "Keeper of rare plant lore.",
+          "node": "Calvin Dempsey",
+          "description": "Keeper of family traditions and wildcrafting secrets.",
           "link": "",
           "image": "test.jpg",
           "cardType": "primary",
           "badge": "triangle",
           "children": [
             {
-              "node": "Malcolm Sutherland",
-              "description": "Modern herbalist blending tradition with science.",
+              "node": "Nadia Forsyth",
+              "description": "Modern herbalist blending tradition and science.",
               "link": "https://www.mountainroseherbs.com",
               "image": "test.jpg",
               "cardType": "secondary",
               "badge": "",
               "children": [
                 {
-                  "node": "Quincy Tatum",
-                  "description": "Specializes in tinctures and salves.",
+                  "node": "Emory Chase",
+                  "description": "Focused on botanical extractions and remedies.",
                   "link": "",
                   "image": "test.jpg",
-                  "cardType": "secondary",
+                  "cardType": "primary",
                   "badge": "",
                   "children": [
                     {
-                      "node": "Jasper Winslow",
-                      "description": "Focus on sustainable harvesting.",
-                      "link": "",
-                      "image": "test.jpg",
-                      "cardType": "primary",
-                      "badge": "",
-                      "children": []
-                    },
-                    {
-                      "node": "Mabel Rosenthal",
-                      "description": "Herbal educator and writer.",
+                      "node": "Ivy Kincaid",
+                      "description": "Skilled in making herbal salves and balms.",
                       "link": "",
                       "image": "test.jpg",
                       "cardType": "secondary",
@@ -57,8 +48,8 @@ const treeData = [{
                       "children": []
                     },
                     {
-                      "node": "Orson Hawthorne",
-                      "description": "Expert in medicinal mushrooms.",
+                      "node": "Reed Harmon",
+                      "description": "Passionate about sustainable foraging.",
                       "link": "",
                       "image": "test.jpg",
                       "cardType": "primary",
@@ -66,11 +57,20 @@ const treeData = [{
                       "children": []
                     },
                     {
-                      "node": "Nina Blackwood",
-                      "description": "Passionate about community wellness.",
+                      "node": "Gwen Whitlock",
+                      "description": "Herbal educator and storyteller.",
+                      "link": "",
+                      "image": "test.jpg",
+                      "cardType": "secondary",
+                      "badge": "",
+                      "children": []
+                    },
+                    {
+                      "node": "Orion Mayfield",
+                      "description": "Works with adaptogens and immune support.",
                       "link": "https://www.mountainroseherbs.com",
                       "image": "test.jpg",
-                      "cardType": "secondary",
+                      "cardType": "primary",
                       "badge": "",
                       "children": []
                     }
@@ -81,31 +81,31 @@ const treeData = [{
           ]
         },
         {
-          "node": "Isadora Remington",
-          "description": "Historian of herbal medicine.",
+          "node": "Fiona Radcliffe",
+          "description": "Herbal historian and plant enthusiast.",
           "link": "",
           "image": "test.jpg",
           "cardType": "primary",
           "badge": "triangle",
           "children": [
             {
-              "node": "Margot Ellsworth",
-              "description": "Practitioner with a focus on botanical teas.",
+              "node": "Dexter Langley",
+              "description": "Expert in botanical teas and tinctures.",
               "link": "",
               "image": "test.jpg",
               "cardType": "secondary",
               "badge": "",
               "children": [
                 {
-                  "node": "Frederick Malone",
-                  "description": "Researcher of plant-based remedies.",
+                  "node": "Pearl Kavanagh",
+                  "description": "Researcher of plant-based medicine.",
                   "link": "",
                   "image": "test.jpg",
                   "cardType": "primary",
                   "badge": "",
                   "children": [
                     {
-                      "node": "Leona Winslow",
+                      "node": "Blaise Thornton",
                       "description": "Community herbalist and mentor.",
                       "link": "",
                       "image": "test.jpg",
@@ -113,16 +113,16 @@ const treeData = [{
                       "badge": "",
                       "children": [
                         {
-                          "node": "Cecil Hawthorne",
-                          "description": "Lover of wildcrafting and foraging.",
+                          "node": "Marlowe Eastman",
+                          "description": "Wildcrafter and nature lover.",
                           "link": "",
                           "image": "test.jpg",
                           "cardType": "primary",
                           "badge": "",
                           "children": [
                             {
-                              "node": "Aurelia Frost",
-                              "description": "Focused on herbal skincare.",
+                              "node": "Selene Winters",
+                              "description": "Focused on herbal skin care products.",
                               "link": "",
                               "image": "test.jpg",
                               "cardType": "secondary",
@@ -130,8 +130,8 @@ const treeData = [{
                               "children": []
                             },
                             {
-                              "node": "Silas Drake",
-                              "description": "Specializes in roots and barks.",
+                              "node": "Calista Vaughn",
+                              "description": "Specializes in roots and herbal remedies.",
                               "link": "",
                               "image": "test.jpg",
                               "cardType": "primary",
@@ -139,8 +139,8 @@ const treeData = [{
                               "children": []
                             },
                             {
-                              "node": "Luna Whitaker",
-                              "description": "Works with adaptogens and tonics.",
+                              "node": "Tobias Grey",
+                              "description": "Works with herbal adaptogens and tonics.",
                               "link": "",
                               "image": "test.jpg",
                               "cardType": "secondary",
@@ -148,8 +148,8 @@ const treeData = [{
                               "children": []
                             },
                             {
-                              "node": "Dorian Blake",
-                              "description": "Advocate for natural healing methods.",
+                              "node": "Cecily Dunn",
+                              "description": "Advocate for holistic natural healing.",
                               "link": "https://www.mountainroseherbs.com",
                               "image": "test.jpg",
                               "cardType": "primary",
@@ -159,8 +159,8 @@ const treeData = [{
                           ]
                         },
                         {
-                          "node": "Theresa Langley",
-                          "description": "Passionate about herbal education.",
+                          "node": "Leland Moore",
+                          "description": "Dedicated to herbal education and outreach.",
                           "link": "",
                           "image": "test.jpg",
                           "cardType": "secondary",
@@ -168,8 +168,8 @@ const treeData = [{
                           "children": []
                         },
                         {
-                          "node": "Gideon Vaughn",
-                          "description": "Expert in botanical extractions.",
+                          "node": "Daphne Keller",
+                          "description": "Expert in botanical extractions and preparations.",
                           "link": "",
                           "image": "test.jpg",
                           "cardType": "primary",
@@ -177,8 +177,8 @@ const treeData = [{
                           "children": []
                         },
                         {
-                          "node": "Ramona Hales",
-                          "description": "Dedicated to plant conservation.",
+                          "node": "Silvia Ramsey",
+                          "description": "Focused on plant conservation and ethics.",
                           "link": "https://www.mountainroseherbs.com",
                           "image": "test.jpg",
                           "cardType": "secondary",
@@ -190,7 +190,7 @@ const treeData = [{
                   ]
                 },
                 {
-                  "node": "Vera Callahan",
+                  "node": "Eamon Hale",
                   "description": "Herbalist and community organizer.",
                   "link": "",
                   "image": "test.jpg",
@@ -205,6 +205,4 @@ const treeData = [{
       ]
     }
   ]
-}];
-
-export default treeData;
+}

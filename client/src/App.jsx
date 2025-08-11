@@ -7,7 +7,7 @@ import Header from './components/Header/Header.jsx';
 
 function App() {
   const [treeData, setTreeData] = useState([]);
-  const [datasetKey, setDatasetKey] = useState('one');
+  const [datasetKey, setDatasetKey] = useState('1');
   const godNodeRef = useRef(null);
   const [controller, setController] = useState(null);
   const [expandedNodes, setExpandedNodes] = useState({});
@@ -116,25 +116,46 @@ function App() {
     });
   };
 
-  useEffect(() => {
-    const loadData = async () => {
-      let dataModule;
-      switch (datasetKey) {
-        case 'two':
-          dataModule = await import('./assets/data/treeData2.js');
-          break;
-        case 'three':
-          dataModule = await import('./assets/data/treeData3.js');
-          break;
-        case 'one':
-        default:
-          dataModule = await import('./assets/data/treeData1.js');
-      }
-      setTreeData(dataModule.default);
-    };
+  // FETCH DATA FROM CLIENT FILES
+  // useEffect(() => {
+  //   const loadData = async () => {
+  //     let dataModule;
+  //     switch (datasetKey) {
+  //       case 'two':
+  //         dataModule = await import('./assets/data/treeData2.js');
+  //         break;
+  //       case 'three':
+  //         dataModule = await import('./assets/data/treeData3.js');
+  //         break;
+  //       case 'one':
+  //       default:
+  //         dataModule = await import('./assets/data/treeData1.js');
+  //     }
+  //     setTreeData(dataModule.default);
+  //   };
 
-    loadData();
-  }, [datasetKey]);
+  //   loadData();
+  // }, [datasetKey]);
+
+  // FETCH DATA FROM SERVER
+  useEffect(() => {
+  const fetchTreeData = async () => {
+    if (!datasetKey) return;
+
+    try {
+      const response = await fetch(`http://localhost:3001/api/tree/${datasetKey}`);
+      if (!response.ok) throw new Error('Network response was not ok');
+      const data = await response.json();
+      setTreeData(data);
+    } catch (error) {
+      console.error('Failed to fetch tree data:', error);
+      setTreeData([]); // Optional: clear on error
+    }
+  };
+
+  fetchTreeData();
+}, [datasetKey]);
+
 
   useEffect(() => {
     if (controller && godNodeRef.current) {
@@ -150,7 +171,7 @@ function App() {
         path="/"
         element={
           <Tree
-            treeData={treeData}
+            treeData={[treeData]}
             renderTree={renderTree}
             godNodeRef={godNodeRef}
             setController={setController}

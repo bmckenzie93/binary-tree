@@ -14,9 +14,9 @@ const Header = ({ onSelectDataset }) => {
         <p>Click, drag, pinch and scroll to explore around the app. Click on a card to open and close it's descendants.</p>
         <p>
           Select which tree you would like to explore here: <select name="dataSelect" id="dataSelect" onChange={handleChange}>
-                                                              <option value="one">Data set one</option>
-                                                              <option value="two">Data set two</option>
-                                                              <option value="three">Data set three</option>
+                                                              <option value="1">Data set one</option>
+                                                              <option value="2">Data set two</option>
+                                                              <option value="3">Data set three</option>
                                                             </select>
         </p>
         <p>
