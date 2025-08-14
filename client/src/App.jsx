@@ -2,15 +2,16 @@ import { Routes, Route } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import Tree from './pages/Tree.jsx';
 import Join from './pages/Join.jsx';
+import Admin from './pages/Admin.jsx';
 import './App.scss';
 import Header from './components/Header/Header.jsx';
 
 function App() {
   const [treeData, setTreeData] = useState([]);
   const [datasetKey, setDatasetKey] = useState('1');
-  const godNodeRef = useRef(null);
   const [controller, setController] = useState(null);
   const [expandedNodes, setExpandedNodes] = useState({});
+  const godNodeRef = useRef(null);
 
   const toggleNode = (key) => {
     setExpandedNodes(prev => ({
@@ -116,27 +117,6 @@ function App() {
     });
   };
 
-  // FETCH DATA FROM CLIENT FILES
-  // useEffect(() => {
-  //   const loadData = async () => {
-  //     let dataModule;
-  //     switch (datasetKey) {
-  //       case 'two':
-  //         dataModule = await import('./assets/data/treeData2.js');
-  //         break;
-  //       case 'three':
-  //         dataModule = await import('./assets/data/treeData3.js');
-  //         break;
-  //       case 'one':
-  //       default:
-  //         dataModule = await import('./assets/data/treeData1.js');
-  //     }
-  //     setTreeData(dataModule.default);
-  //   };
-
-  //   loadData();
-  // }, [datasetKey]);
-
   // FETCH DATA FROM SERVER
   useEffect(() => {
   const fetchTreeData = async () => {
@@ -180,6 +160,7 @@ function App() {
         }
       />
       <Route path="/join" element={<Join />} />
+      <Route path="/admin" element={<Admin datasetKey={datasetKey} />} />
     </Routes>
   );
 }

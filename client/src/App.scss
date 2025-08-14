@@ -352,5 +352,129 @@ header {
     }
   }
 }
+.admin-container {
+  padding: 2rem;
 
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
 
+  .dataset-selector {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    label {
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+
+    select {
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: #fff;
+    border: 3px solid #006838; // branded border
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      color: #006838;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+
+      &--star { background-color: orange; }
+      &--green { background-color: #4caf50; }
+      &--blue { background-color: #2196f3; }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+
+      button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+      }
+
+      button:first-child { // Delete = secondary
+        background-color: #d9534f;
+        color: white;
+
+        &:hover {
+          background-color: #c9302c;
+          transform: translateY(-2px);
+        }
+      }
+
+      button:last-child { // Edit = primary
+        background-color: #006838;
+        color: white;
+
+        &:hover {
+          background-color: #004f2f;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}

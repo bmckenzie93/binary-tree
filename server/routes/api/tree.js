@@ -81,4 +81,76 @@ try {
 }
 });
 
+router.put('/node', (req, res) => {
+const { lineage, nodeName, updates } = req.body;
+const filePath = path.join(__dirname, '../../data', `treeData${lineage}.json`);
+
+try {
+    let data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+
+    const updateNode = (nodes) => {
+    for (let n of nodes) {
+        if (n.node === nodeName) {
+        Object.assign(n, updates);
+        return true;
+        }
+        if (updateNode(n.children)) return true;
+    }
+    return false;
+    };
+
+    if (!updateNode([data])) {
+    return res.status(404).json({ error: 'Node not found' });
+    }
+
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+
+    res.json({ message: `Node "${nodeName}" updated` });
+} catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to update node' });
+}
+});
+
+router.delete('/node', (req, res) => {
+  const { lineage, nodeName } = req.body;
+  const filePath = path.join(__dirname, '../../data', `treeData${lineage}.json`);
+
+  try {
+    let data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+
+    const deleteNode = (nodes) => {
+      let result = [];
+      for (let n of nodes) {
+        if (n.node === nodeName) {
+          // Promote children to parent
+          if (n.children && n.children.length) {
+            result.push(...n.children);
+          }
+        } else {
+          if (n.children && n.children.length) {
+            n.children = deleteNode(n.children);
+          }
+          result.push(n);
+        }
+      }
+      return result;
+    };
+
+    // Handle root being an object instead of array
+    let updatedData = Array.isArray(data) ? deleteNode(data) : deleteNode([data]);
+    // If root was a single object and after deletion we have only one node, save as object
+    if (!Array.isArray(data) && updatedData.length === 1) updatedData = updatedData[0];
+
+    fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2));
+
+    res.json({ message: `Node "${nodeName}" deleted` });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to delete node' });
+  }
+});
+
+
+
 export default router;
