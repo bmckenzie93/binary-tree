@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../assets/mrh-logo.webp';
 
 const Join = () => {
   const [selectedLineage, setSelectedLineage] = useState('');
@@ -91,7 +93,18 @@ const Join = () => {
 
 return (
   <div className="join-page">
-    <div className="join-main">
+    <header>
+      <img src={logo} alt="Mountain Rose Herbs Logo" />
+      <div className="legend">
+        <p>Add yourself to the tree with the form on this page.</p>
+        <p>
+          <Link to="/">Back to tree</Link>.
+        </p>
+      </div> 
+    </header>
+
+
+    <main className="join-main">
       <form className="join-form" onSubmit={handleSubmit}>
         <h2>Join a Lineage</h2>
 
@@ -125,13 +138,13 @@ return (
         </div>
 
         <div className="form-group">
-          <label>Node:</label>
+          <label>Name:</label>
           <input value={node} onChange={(e) => setNode(e.target.value)} required />
         </div>
 
         <div className="form-group">
           <label>Description:</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
         </div>
 
         <div className="form-group">
@@ -153,7 +166,7 @@ return (
           Add Node
         </button>
       </form>
-    </div>
+    </main>
   </div>
 );
 

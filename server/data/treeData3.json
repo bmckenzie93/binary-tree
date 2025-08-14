@@ -135,7 +135,17 @@
           "image": "",
           "link": "",
           "badge": "",
-          "children": []
+          "children": [
+            {
+              "node": " ",
+              "description": "",
+              "cardType": "secondary",
+              "image": "",
+              "link": "",
+              "badge": "",
+              "children": []
+            }
+          ]
         }
       ]
     }
