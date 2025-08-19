@@ -119,37 +119,33 @@ router.delete('/node', (req, res) => {
   try {
     let data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
-    const deleteNode = (nodes) => {
-      let result = [];
-      for (let n of nodes) {
-        if (n.node === nodeName) {
-          // Promote children to parent
-          if (n.children && n.children.length) {
-            result.push(...n.children);
-          }
-        } else {
-          if (n.children && n.children.length) {
-            n.children = deleteNode(n.children);
-          }
-          result.push(n);
-        }
+    // Recursive delete function
+    const deleteNode = (node) => {
+      if (node.node === nodeName) {
+        return {}; // delete node completely
       }
-      return result;
+
+      if (node.children && node.children.length) {
+        node.children = node.children
+          .map(deleteNode)
+          .filter(Boolean); // remove nulls
+      }
+
+      return node; // keep node if not deleted
     };
 
-    // Handle root being an object instead of array
-    let updatedData = Array.isArray(data) ? deleteNode(data) : deleteNode([data]);
-    // If root was a single object and after deletion we have only one node, save as object
-    if (!Array.isArray(data) && updatedData.length === 1) updatedData = updatedData[0];
+    const newData = deleteNode(data);
 
-    fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2));
+    fs.writeFileSync(filePath, JSON.stringify(newData, null, 2));
 
-    res.json({ message: `Node "${nodeName}" deleted` });
+    res.json({ message: `Node "${nodeName}" deleted successfully` });
   } catch (err) {
-    console.error(err);
+    console.error('Failed to delete node:', err);
     res.status(500).json({ error: 'Failed to delete node' });
   }
 });
+
+
 
 
 

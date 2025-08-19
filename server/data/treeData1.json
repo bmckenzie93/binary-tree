@@ -1,5 +1,5 @@
 {
-  "node": "The Avengers",
+  "node": "The Avengerz",
   "description": "A team of superheroes, each with their own unique powers and skills.",
   "link": "https://www.mountainroseherbs.com",
   "image": "test.jpg",
@@ -7,62 +7,109 @@
   "badge": "star",
   "children": [
     {
-      "node": "Bruce Banner / The Hulk",
-      "description": "A brilliant scientist who transforms into a green behemoth when enraged.",
+      "node": "Tony Stark / Iron Man",
+      "description": "Genius inventor in a high-tech suit of armor, witty and resourceful.",
+      "link": "",
+      "image": "test.jpg",
+      "cardType": "secondary",
+      "badge": "triangle",
+      "children": [
+        {
+          "node": "Pepper Potts / Rescue",
+          "description": "CEO of Stark Industries and armored superhero.",
+          "link": "",
+          "image": "test.jpg",
+          "cardType": "primary",
+          "badge": "star",
+          "children": [
+            {
+              "node": "Morgan Stark",
+              "description": "Tony and Pepper's daughter, tech prodigy in training.",
+              "link": "",
+              "image": "test.jpg",
+              "cardType": "secondary",
+              "badge": "",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "node": "Natasha Romanoff / Black Widow",
+      "description": "Expert spy and martial artist with a mysterious past.",
+      "link": "https://www.mountainroseherbs.com",
+      "image": "test.jpg",
+      "cardType": "primary",
+      "badge": "",
+      "children": [
+        {
+          "node": "Yelena Belova / Black Widow",
+          "description": "Natasha's sister and fellow spy, skilled in combat.",
+          "link": "",
+          "image": "test.jpg",
+          "cardType": "secondary",
+          "badge": "",
+          "children": []
+        }
+      ]
+    },
+    {
+      "node": "Clint Barton / Hawkeye",
+      "description": "Master archer with unmatched precision and calm under pressure.",
+      "link": "",
+      "image": "test.jpg",
+      "cardType": "secondary",
+      "badge": "",
+      "children": [
+        {
+          "node": "Kate Bishop / Hawkeye",
+          "description": "Young archer and protege of Clint Barton.",
+          "link": "",
+          "image": "test.jpg",
+          "cardType": "primary",
+          "badge": "",
+          "children": []
+        },
+        {
+          "node": "Lucky / Hawkeye's Dog",
+          "description": "Loyal canine companion to Clint Barton.",
+          "link": "",
+          "image": "test.jpg",
+          "cardType": "secondary",
+          "badge": "",
+          "children": []
+        }
+      ]
+    },
+    {
+      "node": "Sam Wilson / Falcon",
+      "description": "Aerial combatant with mechanical wings and a loyal heart.",
       "link": "",
       "image": "test.jpg",
       "cardType": "primary",
       "badge": "",
       "children": [
         {
-          "node": "Tony Stark / Iron Man",
-          "description": "Genius inventor in a high-tech suit of armor, witty and resourceful.",
+          "node": "The Falcon Squad",
+          "description": "Team of aerial allies under Sam's leadership.",
           "link": "",
           "image": "test.jpg",
           "cardType": "secondary",
-          "badge": "triangle",
+          "badge": "",
           "children": [
             {
-              "node": "Natasha Romanoff / Black Widow",
-              "description": "Expert spy and martial artist with a mysterious past.",
-              "link": "https://www.mountainroseherbs.com",
+              "node": "Redwing",
+              "description": "Sam's mechanical bird companion.",
+              "link": "",
               "image": "test.jpg",
               "cardType": "primary",
               "badge": "",
-              "children": [
-                {
-                  "node": "Clint Barton / Hawkeye",
-                  "description": "Master archer with unmatched precision and calm under pressure.",
-                  "link": "",
-                  "image": "test.jpg",
-                  "cardType": "secondary",
-                  "badge": "",
-                  "children": []
-                },
-                {
-                  "node": "Sam Wilson / Falcon",
-                  "description": "Aerial combatant with mechanical wings and a loyal heart.",
-                  "link": "",
-                  "image": "test.jpg",
-                  "cardType": "primary",
-                  "badge": "",
-                  "children": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "node": "Thor Odinson",
-          "description": "God of Thunder wielding the mighty hammer Mjolnir.",
-          "link": "",
-          "image": "test.jpg",
-          "cardType": "primary",
-          "badge": "circle",
-          "children": [
+              "children": []
+            },
             {
-              "node": "Loki Laufeyson",
-              "description": "Trickster god, master of illusions and mischief.",
+              "node": "Joaquin Torres",
+              "description": "New Falcon, protege trained by Sam Wilson.",
               "link": "",
               "image": "test.jpg",
               "cardType": "secondary",
@@ -102,50 +149,21 @@
       ]
     },
     {
-      "node": "brandon",
-      "description": "cool guy",
-      "cardType": "secondary",
-      "image": "",
+      "node": "Thor Odinson",
+      "description": "God of Thunder wielding the mighty hammer Mjolnir.",
       "link": "",
-      "badge": "",
+      "image": "test.jpg",
+      "cardType": "primary",
+      "badge": "circle",
       "children": [
         {
-          "node": "akili",
-          "description": "cooler guy",
-          "cardType": "secondary",
-          "image": "",
+          "node": "Loki Laufeyson",
+          "description": "Trickster god, master of illusions and mischief.",
           "link": "",
-          "badge": "",
-          "children": [
-            {
-              "node": "grand daughter",
-              "description": "ayeee",
-              "cardType": "secondary",
-              "image": "",
-              "link": "",
-              "badge": "",
-              "children": []
-            }
-          ]
-        },
-        {
-          "node": "neelah",
-          "description": "cool girl",
+          "image": "test.jpg",
           "cardType": "secondary",
-          "image": "",
-          "link": "",
           "badge": "",
-          "children": [
-            {
-              "node": " ",
-              "description": "",
-              "cardType": "secondary",
-              "image": "",
-              "link": "",
-              "badge": "",
-              "children": []
-            }
-          ]
+          "children": []
         }
       ]
     }
