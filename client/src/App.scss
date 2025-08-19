@@ -352,77 +352,82 @@ header {
     }
   }
 }
+
+
+
+
+
+
 .admin-container {
   padding: 2rem;
 
   h1 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .dataset-selector {
     margin-bottom: 2rem;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 
     label {
-      margin-right: 0.5rem;
       font-weight: bold;
     }
 
     select {
-      padding: 0.4rem 0.6rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 1rem;
       border-radius: 6px;
       border: 1px solid #ccc;
-      font-size: 1rem;
     }
   }
 
-  .cards-grid {
+  .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
   }
 
   .card {
-    background: #fff;
-    border: 3px solid #006838; // branded border
+    background-color: #fff;
+    border: 2px solid #b4774d; // branded border
     border-radius: 12px;
     padding: 1rem;
-    text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.2s;
 
     &:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
     h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-      color: #333;
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: bold;
     }
 
     img {
-      width: 100px;
-      height: 100px;
+      width: 100%;
+      max-height: 140px;
       object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 0.5rem;
+      border-radius: 8px;
     }
 
     p {
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
     }
 
     a {
-      display: inline-block;
-      margin-bottom: 0.5rem;
-      color: #006838;
-      text-decoration: none;
+      color: #b4774d;
       font-weight: bold;
-
+      text-decoration: none;
       &:hover {
         text-decoration: underline;
       }
@@ -430,49 +435,67 @@ header {
 
     .badge {
       display: inline-block;
-      padding: 0.25rem 0.5rem;
-      margin-bottom: 0.5rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: bold;
+      background-color: #b4774d;
       color: #fff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
 
-      &--star { background-color: orange; }
-      &--green { background-color: #4caf50; }
-      &--blue { background-color: #2196f3; }
+    /* EDIT MODE STYLING */
+    input[type="text"] {
+      width: 100%;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+      margin-bottom: 0.4rem;
+
+      &:focus {
+        outline: none;
+        border-color: #b4774d;
+        box-shadow: 0 0 4px rgba(180, 119, 77, 0.5);
+      }
     }
 
     .actions {
       display: flex;
-      justify-content: center;
       gap: 0.5rem;
+      margin-top: 0.5rem;
 
-      button {
-        padding: 0.5rem 1rem;
+      .btn-primary {
+        flex: 1;
+        background-color: #b4774d;
+        color: #fff;
         border: none;
         border-radius: 6px;
-        font-weight: bold;
+        padding: 0.5rem 0;
         cursor: pointer;
-        transition: background-color 0.2s ease, transform 0.1s ease;
-      }
-
-      button:first-child { // Delete = secondary
-        background-color: #d9534f;
-        color: white;
+        font-weight: bold;
+        transition: background-color 0.2s;
 
         &:hover {
-          background-color: #c9302c;
-          transform: translateY(-2px);
+          background-color: #9e613a;
         }
       }
 
-      button:last-child { // Edit = primary
-        background-color: #006838;
-        color: white;
+      .btn-secondary {
+        flex: 1;
+        background-color: #ccc;
+        color: #333;
+        border: none;
+        border-radius: 6px;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.2s;
 
         &:hover {
-          background-color: #004f2f;
-          transform: translateY(-2px);
+          background-color: #aaa;
         }
       }
     }
